@@ -1,0 +1,12 @@
+#Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#Configs{
+  background-color: rgb(38, 39, 48);
+  height: 60%;
+  width: 90vw;
+  border-radius: 1rem;
+}
