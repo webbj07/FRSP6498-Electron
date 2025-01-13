@@ -1,0 +1,49 @@
+.sidebar{
+  background-color: rgb(68, 69, 78);
+  border-radius: 10px;
+  width: fit-content;
+  min-width: 300px;
+  padding: 10px;
+  height: 80vh;
+}
+.mainContainer{
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  margin-left: 20px;
+}
+#main{
+  display: block;
+  padding: 10px;
+  flex: 1;
+  margin-left: 20px;
+}
+.popup{
+  display: none;
+  width: full;
+  height: full;
+  color: transparent;
+  opacity: 0.5;
+}
+.popupContent{
+  width: 40vw;
+  height: 30vh;
+  background-color: rgb(68, 69, 78);
+}
+select{
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: none;
+  color: white;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 lem 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}

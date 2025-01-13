@@ -12,16 +12,20 @@ var CurrentGame = {
     }
   ]
 }
-export function AddControlNode(ParentName, Name, Type) {
-  if (ParentName != "root") {
-    var ParentNode = findDictionaryByName(CurrentGame.Controls, ParentName);
-  } else {
-    var ParentNode = "root";
-  }
+export function AddControlNode(ParentName, Name, Type, parameters) {
+  
   var newChildNode = {
     "Name": Name,
     "Type": Type,
-    "Controls": []
+    "Children": [],
+    "Parameters": parameters //this is for any settings that should apply to the control
+  }
+  //Add to parent
+  if (ParentName != "root") {
+    var ParentNode = findDictionaryByName(CurrentGame.Controls, ParentName);
+
+  } else {
+    var ParentNode = "root";
   }
   ParentNode.children.append(newChildNode);
 }
@@ -33,10 +37,21 @@ export function GenerateDictionarySelectionDiv() {
   const initNode = document.createElement("button");
   initNode.innerHTML = `${CurrentGame["Name"]}:${CurrentGame["Year"]}`;
   div.appendChild(initNode);
-
+  const arr = printNonDictionaryEntries(CurrentGame);
+  var lastdepth=0;
+  for(const str in arr){
+    
+  }
 }
+
+
+//
+// this will probably not work
+//
+//
+//
 //TODO:: Find a way to display the current Node tree to the user
-function printNonDictionaryEntries(obj, current={}, parentName, depth) {
+function printNonDictionaryEntries(obj, current=[], depth=0) {
     // Iterate through the keys in the object
     for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -44,21 +59,22 @@ function printNonDictionaryEntries(obj, current={}, parentName, depth) {
 
             // Check if the value is an object or an array
             if (typeof value === "object" && value !== null) {
-                if (Array.isArray(value)) {
+                // only iterate through the children array
+                if (Array.isArray(value) && value.Name === "Children") {
                     // If it's an array, iterate through its elements
                     for (const element of value) {
                         if (typeof element === "object" && element !== null) {
                             // Recursively process nested dictionaries
-                            printNonDictionaryEntries(element);
+                            printNonDictionaryEntries(element, current, ++depth);
                         }
                     }
                 } else {
                     // Recursively process nested dictionaries
-                    printNonDictionaryEntries(value);
+                    printNonDictionaryEntries(value, current, ++depth);
                 }
             } else {
                 // If it's not a dictionary or array, print the key and value
-                console.log(`${key}: ${value}`);
+              current.append(`${key}, ${obj[key], depth}`);
             }
         }
     }

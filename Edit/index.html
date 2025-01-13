@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add New Config</title>
-    <link href="../globals/global.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
-  </head>
-  <body>
-  </body> 
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add New Config</title>
+  <link href="../globals/global.css" rel="stylesheet">
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <p>Config Creator</p>
+    <button type="button" id="popupButton">Add New</button>
+    <script type="module">
+      import {showPopup} from './index.js'
+      document.getElementbyId('popupButton').addEventListener('click', ()=>{
+        showPopup();
+      })
+    </script
+  </div>
+  <div class="mainContainer">
+
+
+    <div class="sidebar">
+      <div id="sidebarHeader">
+        <p>Controls</p>
+      </div>
+      <!--Populate Controls here-->
+    </div>
+    <div id="main">
+      <form id="CreatorForm">
+
+        <button type="submit">Confirm</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup" id="popup">
+    <div class="popupContent">
+      <label for="TypeSelector">Select an Element Type</label>
+      <select id="ElementTypeSelector" name="TypeSelector">
+        <option value="none"></option>
+        <option value="Label">Label</option>
+        <option value="Increment">Increment</option>
+        <option value="Text">Text Input</option>
+        <option value="LargeText">Large Text Input</option>
+        <option value="Container">Element Container</option>
+      </select>
+    </div>
+  </div>
+  <script src="index.js" type="module"></script>
+</body>
 </html>
