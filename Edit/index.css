@@ -5,45 +5,39 @@
   min-width: 300px;
   padding: 10px;
   height: 80vh;
+  margin: 20px;
+  margin-top: 130px;
+  
 }
-.mainContainer{
-  border-radius: 10px;
-  padding: 10px;
+.Container{
   display: flex;
-  margin: 10px;
-  margin-left: 20px;
-}
-#main{
-  display: block;
-  padding: 10px;
-  flex: 1;
-  margin-left: 20px;
 }
 .popup{
   display: none;
-  width: full;
-  height: full;
-  color: transparent;
-  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  backdrop-filter: blur(10px);
+}
+.controlConfiguration{
+  flex: 1;
+  background-color: rgb(58, 59, 68);
+  margin: 20px;
+  margin-top: 130px;
+  border-radius: 10px;
 }
 .popupContent{
+  display: flex;
+  padding: 50px;
   width: 40vw;
   height: 30vh;
-  background-color: rgb(68, 69, 78);
-}
-select{
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: none;
-  color: white;
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  padding: 0 lem 0 0;
-  margin: 0;
-  width: 100%;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: inherit;
-  line-height: inherit;
+  background-color: rgb(38, 39, 58);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
