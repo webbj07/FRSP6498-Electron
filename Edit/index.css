@@ -4,13 +4,13 @@
   width: fit-content;
   min-width: 300px;
   padding: 10px;
-  height: 80vh;
   margin: 20px;
-  margin-top: 130px;
-  
+  height: inherit;
 }
 .Container{
   display: flex;
+  height: 75vh;
+  margin-top: 130px;
 }
 .popup{
   display: none;
@@ -24,12 +24,29 @@
   top: 0px;
   backdrop-filter: blur(10px);
 }
-.controlConfiguration{
+.controlConfigurationContainer{
   flex: 1;
-  background-color: rgb(58, 59, 68);
+  height: inherit;
   margin: 20px;
-  margin-top: 130px;
+  background-color: rgb(58, 59, 68);
+  padding: 10px;
   border-radius: 10px;
+  margin-bottom: 50px;
+}
+.controlConfiguration{
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 30px;
+}
+#configurationHeader{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: center;
+  font-size: 24pt;
 }
 .popupContent{
   display: flex;

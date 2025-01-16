@@ -13,7 +13,6 @@
   <div class="headWrapper">
     <div class="header">
       <p>Config Creator</p>
-      <script type="module" src="index.js"></script>
       <button type="button" id="popupButton">Add New</button>
     </div>
   </div>
@@ -24,8 +23,11 @@
         <p>Controls</p>
       </div>
     </div>
-    <div class="controlConfiguration" id="controlConfiguration">
+    <div class="controlConfigurationContainer">
+      <div id="configurationHeader"></div>
+      <div class="controlConfiguration" id="controlConfiguration">
         
+      </div>
     </div>
   </div>
   <div class="popup" id="popup">
@@ -37,7 +39,7 @@
         <option value="Label">Label</option>
         <option value="Increment">Increment</option>
         <option value="Text">Text Input</option>
-        <option value="LargeText">Large Text Input</option>
+        <option value="Large Text Input">Large Text Input</option>
         <option value="Container">Element Container</option>
         </select>
         <button type="submit">Confirm</button>
