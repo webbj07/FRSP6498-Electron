@@ -1,46 +1,80 @@
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
 //Control Tree
 var CurrentGame = {
-  "Name": "",
-  "Year": "",
-  "Controls": [
-    {
-      "Name": "root",
+  "name": "2025ReefScape",
+  "year": "",
+  "controls": {
+    "root":{
       "type": "root",
-      "children": [
+      "children": {
 
-      ]
-    }
-  ]
+      }
+    },
+  }
 }
-export function AddControlNode(ParentName, Name, Type, parameters) {
-  
+export function AddControlNode(ParentName, parameters) {
+  let name = parameters["name"];
+  let type = parameters["type"];
+  delete parameters["name"];
+  delete parameters["type"];
   var newChildNode = {
-    "Name": Name,
-    "Type": Type,
-    "Children": [],
-    "Parameters": parameters //this is for any settings that should apply to the control
+    "type": type,
+    "children": {},
+    "parameters": parameters //this is for any settings that should apply to the control
   }
   //Add to parent
   if (ParentName != "root") {
-    var ParentNode = findDictionaryByName(CurrentGame.Controls, ParentName);
-
+    //only seach if trying to add element to a Container
+    var ParentNode = findDictionaryByName(CurrentGame.controls, ParentName);
   } else {
-    var ParentNode = "root";
+    var ParentNode = CurrentGame.controls.root;
   }
-  ParentNode.children.append(newChildNode);
+  ParentNode.children[name] = newChildNode;
+  console.log(CurrentGame.controls);
 }
+export function SaveCurrentConfigFile(){
+    const appPath = getAppDataPath();
+    const filePath = path.join(appPath, "/FRSP6498/" + CurrentGame.name + ".json");
+    if (!fs.existsSync(path.join(appPath, "/FRSP6498"))) {
+        fs.mkdirSync(path.join(appPath, "/FRSP6498"));
+    }
+    console.log(`Writing to ${filePath}`);
+    try{
+       fs.writeFileSync(filePath, JSON.stringify(CurrentGame), "utf-8");
+       alert("File Saved");
+    }catch(e){
+        alert(`failed to save file -- Error: ${e}`);
+    }
+
+}
+export function getAppDataPath() {
+    const platform = os.platform();
+
+    switch (platform) {
+      case 'win32':
+        return process.env.APPDATA || `${process.env.USERPROFILE}\\AppData\\Roaming`;
+      case 'darwin':
+        return `${process.env.HOME}/Library/Application Support`;
+      case 'linux':
+        return process.env.XDG_DATA_HOME || `${process.env.HOME}/.local/share`;
+      default:
+        throw new Error('Unsupported platform');
+    }
+  }
 //Creates a div that the user can select to edit any node in the Control Tree
 export function GenerateDictionarySelectionDiv() {
   //root div of the tree
   const div = document.createElement("div");
   //first node containing the Game name and year
   const initNode = document.createElement("button");
-  initNode.innerHTML = `${CurrentGame["Name"]}:${CurrentGame["Year"]}`;
+  initNode.innerHTML = `${CurrentGame["name"]}:${CurrentGame["year"]}`;
   div.appendChild(initNode);
   const arr = printNonDictionaryEntries(CurrentGame);
   var lastdepth=0;
   for(const str in arr){
-    
+
   }
 }
 
@@ -109,4 +143,3 @@ function findDictionaryByName(obj, targetName, depth = 0) {
   // Return null if the dictionary is not found
   return null;
 }
-

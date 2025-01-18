@@ -1,10 +1,24 @@
-#Container {
+a{
+    color: white;
+    font-size: 12pt;
+    text-decoration: none;
+}
+.linkContainer{
+    background-color: slateblue;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+}
+#container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-#Configs{
+#configs{
   background-color: rgb(38, 39, 48);
   height: 60%;
   width: 90vw;
@@ -12,11 +26,30 @@
   padding: 10px;
   margin: 10px;
 }
-#Configs > input[type=button]{
+#configs > input[type=button]{
   display: flex;
   width: inherit;
   padding: 5px;
   height: 50px;
   font-size: 24px;
   border-radius: 10px;
+}
+#configs > div{
+    width: full;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background-color: slateblue;
+    box-shadow: none;
+    border-radius: 10px;
+}
+#configs > div {
+    cursor:pointer;
+ }
+#configs > div > a{
+    color: white;
+    text-decoration: none;
+    font-size: 18pt;
 }

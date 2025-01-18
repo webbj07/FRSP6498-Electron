@@ -2,50 +2,56 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add New Config</title>
-  <link href="../globals/global.css" rel="stylesheet">
-  <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add New Config</title>
+    <link href="../globals/global.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="headWrapper">
-    <div class="header">
-      <p>Config Creator</p>
-      <button type="button" id="popupButton">Add New</button>
+    <div class="headWrapper">
+        <div class="header">
+            <p>Config Creator</p>
+            <div>
+                <button type="button" id="saveButton">Save</button>
+                <button type="button" id="popupButton">Add New</button>
+            </div>
+        </div>
     </div>
-  </div>
     </div> <!--Do not remove it will break the UI for some reason-->
-  <div class="Container">
-    <div class="sidebar">
-      <div class="sidebarHeader">
-        <p>Controls</p>
-      </div>
+    <div class="Container">
+        <div class="sidebar">
+            <div class="sidebarHeader">
+                <p>Controls</p>
+            </div>
+        </div>
+        <div class="controlConfigurationContainer">
+            <div id="configurationHeader"></div>
+            <div class="controlConfiguration" id="controlConfiguration">
+                <form id="configurationForm" name="configurationForm">
+
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="controlConfigurationContainer">
-      <div id="configurationHeader"></div>
-      <div class="controlConfiguration" id="controlConfiguration">
-        
-      </div>
+    <div class="popup" id="popup">
+        <div class="popupContent">
+            <form id="controlTypeForm">
+                <label for="TypeSelector">Select an Element Type</label>
+                <select id="ElementTypeSelector" name="TypeSelector">
+                    <option value="none"></option>
+                    <option value="Label">Label</option>
+                    <option value="Increment">Increment</option>
+                    <option value="Text">Text Input</option>
+                    <option value="Large Text Input">Large Text Input</option>
+                    <option value="Container">Element Container</option>
+                </select>
+                <button type="submit">Confirm</button>
+            </form>
+        </div>
     </div>
-  </div>
-  <div class="popup" id="popup">
-    <div class="popupContent">
-      <form id="controlTypeForm">
-        <label for="TypeSelector">Select an Element Type</label>
-        <select id="ElementTypeSelector" name="TypeSelector">
-        <option value="none"></option>
-        <option value="Label">Label</option>
-        <option value="Increment">Increment</option>
-        <option value="Text">Text Input</option>
-        <option value="Large Text Input">Large Text Input</option>
-        <option value="Container">Element Container</option>
-        </select>
-        <button type="submit">Confirm</button>
-      </form>
-    </div>
-  </div>
 </body>
 <script src="index.js" type="module"></script>
+
 </html>
